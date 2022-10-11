@@ -53,6 +53,9 @@ class ProductDetailsFragment(val product:Product): BottomSheetDialogFragment() {
             //alert user that it has been added to cart
             Toast.makeText(requireContext(), "Saved to Cart", Toast.LENGTH_LONG).show()
             binding.addToCart.text = "Removed From Cart"
+
+            //close Bottom Sheet
+            this.dismiss()
         }
     }
 }
