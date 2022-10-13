@@ -36,6 +36,12 @@ class CartFragment : Fragment() {
             initializeRecyclerView()
             showPriceOnCheckOutButton()
         }
+        if (cartViewModel.getPrice() <= 0.0) {
+            binding.checkout.isEnabled = false
+        } else {
+            binding.checkout.isEnabled = true
+        }
+
 
         //set listener to checkout button
         binding.checkout.setOnClickListener {

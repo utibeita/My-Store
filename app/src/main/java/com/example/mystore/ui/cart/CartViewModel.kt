@@ -33,4 +33,9 @@ class CartViewModel : ViewModel() {
     fun getCartLiveData(): MutableLiveData<MutableMap<Product, Int>> {
         return CartRepository.getCartLiveData()
     }
+
+    fun clearCart() {
+        CartRepository.clearCart()
+
+    }
 }
