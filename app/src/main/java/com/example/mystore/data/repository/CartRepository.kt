@@ -54,4 +54,8 @@ object CartRepository {
     private fun notifyValueChange() {
         cartLivedata.value = selectedProducts
     }
+    fun clearCart(){
+        selectedProducts.clear()
+        notifyValueChange()
+    }
 }

@@ -57,5 +57,9 @@ class ProductDetailsFragment(val product:Product): BottomSheetDialogFragment() {
             //close Bottom Sheet
             this.dismiss()
         }
+
+        binding.selectAsFavourite.setOnClickListener{
+            binding.selectAsFavourite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+        }
     }
 }
