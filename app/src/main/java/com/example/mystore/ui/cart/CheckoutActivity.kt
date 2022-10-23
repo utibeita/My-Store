@@ -13,6 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.mystore.R
+import com.example.mystore.data.models.Notification
 import com.example.mystore.data.models.Product
 import com.example.mystore.databinding.ActivityCheckoutBinding
 
@@ -80,7 +81,9 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun saveNotification(message: String) {
+        val notification = Notification(System.currentTimeMillis(), message)
 
+        cartViewModel.saveNotification(notification)
     }
 
     private fun showConfirmationDialog() {

@@ -36,4 +36,8 @@ class NotificationFromSharedPreference(context : Context) {
         editor.remove(notification.time.toString())
         editor.commit()
     }
+    fun saveNotification(notification: Notification) {
+        editor.putString(notification.time.toString(), notification.message)
+        editor.commit()
+    }
 }

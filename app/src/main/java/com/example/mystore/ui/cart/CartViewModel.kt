@@ -1,12 +1,15 @@
 package com.example.mystore.ui.cart
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.mystore.data.models.Notification
 import com.example.mystore.data.models.Product
 import com.example.mystore.data.repository.CartRepository
+import com.example.mystore.data.repository.NotificationRepository
 
-class CartViewModel : ViewModel() {
+class CartViewModel(application: Application) : AndroidViewModel(application) {
+    private val notificationRepo = NotificationRepository(application)
     fun getProducts(): List<Product>{
         return CartRepository.getSelectedProducts().keys.toList()
     }
@@ -37,5 +40,8 @@ class CartViewModel : ViewModel() {
     fun clearCart() {
         CartRepository.clearCart()
 
+    }
+    fun saveNotification(notification: Notification){
+        notificationRepo.saveNotification(notification)
     }
 }
